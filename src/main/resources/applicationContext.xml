@@ -5,5 +5,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="applicationContext-shiro.xml"/>
+    <import resource="applicationContext-mybatis.xml"/>
 
 </beans>

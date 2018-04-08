@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% pageContext.setAttribute("ctx", request.getContextPath());%>
 <html>
 <head>
     <title>登录</title>
@@ -7,7 +8,7 @@
 
 登录 注册
 
-<form action="${pageContext.request.contextPath}/login/login" method="post">
+<form action="${ctx}/login/login" method="post">
 
     <input id="username" name="username" placeholder="username">
     <input id="pwd" name="pwd" placeholder="password">

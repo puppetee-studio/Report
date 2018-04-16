@@ -28,11 +28,7 @@
     </bean>
 
     <!-- 自定义 realm -->
-    <bean id="userRealm" class="org.goskyer.report.service.UserRealm">
-        <property name="userService" ref="userService" />
-    </bean>
-
-    <bean id="userService" class="org.goskyer.report.service.UserServiceImpl" />
+    <bean id="userRealm" class="org.goskyer.report.service.UserRealm"></bean>
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>

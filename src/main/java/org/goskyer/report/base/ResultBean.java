@@ -2,37 +2,37 @@ package org.goskyer.report.base;
 
 public class ResultBean {
 
-    public static final String OK_CODE = "0";
+    public static final int OK_CODE = 0;
     public static final String OK_MSG = "ok";
 
-    private String code = OK_CODE;
+    private int code = OK_CODE;
     private String msg = OK_MSG;
-    private String result;
+    private Object result;
 
     public ResultBean() {
         //do nothing
     }
 
-    public ResultBean(String result) {
+    public ResultBean(Object result) {
         this.result = result;
     }
 
-    public ResultBean(String code, String msg) {
+    public ResultBean(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public ResultBean(String code, String msg, String result) {
+    public ResultBean(int code, String msg, String result) {
         this.code = code;
         this.msg = msg;
         this.result = result;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -44,7 +44,7 @@ public class ResultBean {
         this.msg = msg;
     }
 
-    public String getResult() {
+    public Object getResult() {
         return result;
     }
 

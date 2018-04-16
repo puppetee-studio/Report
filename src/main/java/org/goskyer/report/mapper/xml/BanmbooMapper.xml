@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goskyer.report.mapper.BambooMapper">
+
+    <resultMap type="org.goskyer.report.bean.BambooBean" id="bambooBean">
+        <id property="id" column="id"/>
+        <result property="radical" column="radical"/>
+        <result property="sound" column="sound"/>
+        <result property="rhyme" column="rhyme"/>
+        <result property="initial" column="initial"/>
+        <result property="word" column="word"/>
+        <result property="syncopated_figure" column="syncopated_figure"/>
+        <result property="bamboo_figure" column="bamboo_figure"/>
+        <result property="grapheme" column="grapheme"/>
+        <result property="source" column="source"/>
+        <result property="text_name" column="text_name"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <select id="pageBambooList" resultMap="bambooBean">
+        select * from bamboo_slips
+    </select>
+
+    <select id="getBambooById" parameterType="integer" resultMap="bambooBean">
+        select * from bamboo_slips where id = #{id}
+    </select>
+
+    <insert id="addBamboo" parameterType="org.goskyer.report.bean.BambooBean">
+      insert into
+      bamboo_slips(radical,sound,rhyme,initial,word,syncopated_figure,bamboo_figure,grapheme,source,text_name,remarks)
+       values (
+      #{radical},
+      #{sound},
+      #{rhyme},
+      #{initial},
+      #{word},
+      #{syncopated_figure},
+      #{bamboo_figure},
+      #{grapheme},
+      #{source},
+      #{text_name},
+      #{remarks}
+      )
+    </insert>
+
+    <update id="updateBamboo" parameterType="org.goskyer.report.bean.BambooBean">
+        update bamboo_slips
+        <trim prefix="set" suffixOverrides=",">
+            <if test="radical!=null">radical=#{radical},</if>
+            <if test="sound!=null">sound=#{sound},</if>
+            <if test="rhyme!=null">rhyme=#{rhyme},</if>
+            <if test="initial!=null">initial=#{initial},</if>
+            <if test="word!=null">word=#{word},</if>
+            <if test="syncopated_figure!=null">syncopated_figure=#{syncopated_figure},</if>
+            <if test="bamboo_figure!=null">bamboo_figure=#{bamboo_figure},</if>
+            <if test="grapheme!=null">grapheme=#{grapheme},</if>
+            <if test="source!=null">source=#{source},</if>
+            <if test="text_name!=null">text_name=#{text_name},</if>
+            <if test="remarks!=null">remarks=#{remarks},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="removeBamboo" parameterType="org.goskyer.report.bean.BambooBean">
+      delete from bamboo_slips where id = #{id}
+    </delete>
+
+</mapper>
